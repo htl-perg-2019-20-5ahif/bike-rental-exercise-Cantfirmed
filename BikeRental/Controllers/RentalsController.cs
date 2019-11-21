@@ -66,7 +66,10 @@ namespace BikeRental.Controllers
             {
                 return BadRequest();
             }
-
+            if (rental.RentalEnd != null)
+            {
+                return BadRequest();
+            }
             _context.Entry(rental).State = EntityState.Modified;
 
             try

@@ -22,7 +22,7 @@ namespace BikeRental.Model
         [Required, MaxLength(75)]
         public string Street { get; set; }
         [MaxLength(10)]
-        public int HouseNumber { get; set; }
+        public string HouseNumber { get; set; }
         [Required, MaxLength(10)]
         public string ZipCode { get; set; }
         [Required, MaxLength(75)]
@@ -48,6 +48,8 @@ namespace BikeRental.Model
         public decimal PriceAdditionalHours { get; set; }
         [Required]
         public BikeCategory BikeCategory { get; set; }
+        public List<Rental> Rentals { get; set; }
+
     }
 
     public class Rental

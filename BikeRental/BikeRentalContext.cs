@@ -36,6 +36,14 @@ namespace BikeRental
                 .Property(r => r.TotalCost)
                 .HasColumnType("decimal");
 
+            modelBuilder.Entity<Customer>()
+                .HasMany(c => c.Rentals)
+                .WithOne(r => r.Customer)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Bike>()
+                .HasMany(b => b.Rentals)
+                .WithOne(r => r.Bike);
         }
     }
 }
